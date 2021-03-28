@@ -42,7 +42,8 @@
 - create ormconfig.json into src folder in backend root
   - this is to make connection with DB possible
 - create connection.ts into database folder
-- create a folder migrations:
+
+- create a folder migrations, inside database:
 
   - it is like a version control of DB changes
   - it syncronizes these changes among all users
@@ -51,13 +52,16 @@
 
 - include "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js" in scripts, package.json
   - this is to inform typeorm that we are working with Typescript
-- include in ormconfig.json
+- include in ormconfig.json where is the migrations folder
   "migrations": ["./src/database/migrations/*.ts"],
   "cli": {"migrationsDir": "./src/database/migrations"}
+  and this cli one is where to create new migrations
 
 - **typeorm migration:create -n create_orphanages**
 
   - creates the migration with the commands to create a table, with up and down methods
+    - up method will perform the changes in the DB
+    - down method will undo what was done in the up method
 
 - npm run typeorm migration:run
 - npm run typeorm migration:revert (in case we need to delete the table)
@@ -93,3 +97,16 @@
   - program to handle images
 - create a folder config into src
 - create a file upload.ts into config
+
+  - npm install @types/multer -D
+
+- create views folder
+- show a friendly error message for the user who consumes the API
+- **npm i express-async-errors**
+- validation method
+- **npm i yup**
+- **npm i @types/yup -D**
+- allow application be accessed from different domines
+  - for ex.: frontend is is localhost:3000 and backend in localhost:3333
+- **npm i cors**
+- **npm i @types/cors -D**
