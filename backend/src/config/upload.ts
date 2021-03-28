@@ -2,7 +2,7 @@
 import multer = require('multer');
 import path =  require('path');
 
-const multerObject = {
+export default {
     storage: multer.diskStorage({
         destination: path.join(__dirname, '..', '..', 'uploads'),
         filename: (request, file, cb) => {
@@ -12,4 +12,3 @@ const multerObject = {
         },
     })
 };
-export default multerObject
