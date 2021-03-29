@@ -1,29 +1,14 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
 import { FiClock, FiInfo } from "react-icons/fi";
-import { Marker, TileLayer } from "react-leaflet";
-import { useHistory } from 'react-router-dom';
-import L from 'leaflet';
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 
-import mapMarkerImg from "../images/map-marker.svg";
-
-// import PrimaryButton from "../../components/PrimaryButton";
-// import Sidebar from "../../components/Sidebar";
-// import Map from "../../components/Map";
-
+import Sidebar from "../components/Sidebar";
 import '../styles/pages/orphanage.css';
+import mapIcon from "../utils/mapIcon";
 
-const happyMapIcon = L.icon({
-  iconUrl: mapMarkerImg,
-
-  iconSize: [58, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [0, -60]
-})
 
 export default function Orphanage() {
-  const { goBack } = useHistory();
-
   return (
     <div id="page-orphanage">
       <Sidebar />
@@ -58,9 +43,9 @@ export default function Orphanage() {
             <p>Presta assistência a crianças de 06 a 15 anos que se encontre em situação de risco e/ou vulnerabilidade social.</p>
 
             <div className="map-container">
-              <Map 
-                interactive={false}
-                center={[-27.2092052,-49.6401092]} 
+              <MapContainer
+                // interactive={false}
+                center={[50.9647577, 6.9109848]} 
                 zoom={16} 
                 style={{ width: '100%', height: 280 }}
                 // dragging={false}
@@ -73,8 +58,8 @@ export default function Orphanage() {
               <TileLayer
               url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
               />
-                <Marker interactive={false} icon={happyMapIcon} position={[-27.2092052,-49.6401092]} />
-              </Map>
+                <Marker interactive={false} icon={mapIcon} position={[50.9647577, 6.9109848]} />
+              </MapContainer>
 
               <footer>
                 <a href="">Ver rotas no Google Maps</a>
@@ -99,10 +84,10 @@ export default function Orphanage() {
               </div>
             </div>
 
-            <PrimaryButton type="button" className="contact-button">
+            <button type="button" className="contact-button">
               <FaWhatsapp size={20} color="#FFF" />
               Entrar em contato
-            </PrimaryButton>
+            </button>
           </div>
         </div>
       </main>
