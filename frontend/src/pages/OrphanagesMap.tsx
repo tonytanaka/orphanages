@@ -35,7 +35,7 @@ function OrphanagesMap() {
       </aside>
 
       <MapContainer
-        center={[50.9647577, 6.9109848]}
+        center={[-27.2092052,-49.6401092]}
         zoom={14}
         style={{ width: "100%", height: "100%" }}
       >
@@ -46,7 +46,7 @@ function OrphanagesMap() {
 
         <Marker 
             icon={mapIcon}
-            position={[50.9647577, 6.9109848]}
+            position={[-27.2092052,-49.6401092]}
         >
         <Popup closeButton={false} minWidth={248} maxWidth={248} className="map-popup">
             Lar das Meninas
