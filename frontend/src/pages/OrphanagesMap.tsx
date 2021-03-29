@@ -1,21 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FiArrowRight, FiPlus } from "react-icons/fi";
+import { FiPlus, FiArrowRight } from "react-icons/fi";
 import { MapContainer, Marker, TileLayer, Popup } from "react-leaflet";
-import Leaflet from "leaflet";
-
-import "leaflet/dist/leaflet.css";
 
 import mapMarkerImg from "../images/map-marker.svg";
+import mapIcon from "../utils/mapIcon";
 
 import "../styles/pages/orphanages-map.css";
 
-const mapIcon = Leaflet.icon({
-  iconUrl: mapMarkerImg,
-  iconSize:[58, 68],
-  iconAnchor:[29, 68],
-  popupAnchor: [170, 2],
-});
 
 function OrphanagesMap() {
   return (
@@ -35,7 +27,7 @@ function OrphanagesMap() {
       </aside>
 
       <MapContainer
-        center={[-27.2092052,-49.6401092]}
+        center={[50.9647577, 6.9109848]}
         zoom={14}
         style={{ width: "100%", height: "100%" }}
       >
@@ -50,7 +42,7 @@ function OrphanagesMap() {
         >
         <Popup closeButton={false} minWidth={248} maxWidth={248} className="map-popup">
             Lar das Meninas
-            <Link to ="orphanages/1" >
+            <Link to ="/orphanages/1" >
                 <FiArrowRight size={28} color="#FFF" />
             </Link>
         </Popup>

@@ -1,6 +1,11 @@
-aside.sidebar {
-  position: fixed;
+/* 
+aside.sidebar img {
+  width: 48px;
+*/
+
+aside .app-sidebar {
   height: 100%;
+  position: fixed;
   padding: 32px 24px;
   background: linear-gradient(329.54deg, #15b6d6 0%, #15d6d6 100%);
 
@@ -10,12 +15,12 @@ aside.sidebar {
   align-items: center;
 }
 
-aside.sidebar img {
+aside .app-sidebar img {
   width: 48px;
 }
 
-aside.sidebar footer a,
-aside.sidebar footer button {
+aside .app-sidebar footer a,
+aside .app-sidebar footer button {
   width: 48px;
   height: 48px;
 
@@ -33,7 +38,7 @@ aside.sidebar footer button {
   align-items: center;
 }
 
-aside.sidebar footer a:hover,
-aside.sidebar footer button:hover {
+aside .app-sidebar footer a:hover,
+aside .app-sidebar footer button:hover {
   background: #17d6eb;
 }

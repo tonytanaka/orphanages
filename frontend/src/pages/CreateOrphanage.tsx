@@ -1,28 +1,13 @@
 import React from "react";
-import { Map, Marker, TileLayer } from 'react-leaflet';
-import L from 'leaflet';
-import { useHistory } from 'react-router-dom';
+import { MapContainer, Marker, TileLayer } from 'react-leaflet';
 
-// import PrimaryButton from "../../components/PrimaryButton";
-// import Sidebar from "../../components/Sidebar";
+import { FiPlus } from "react-icons/fi";
+import Sidebar from "../components/Sidebar";
+import mapIcon from "../utils/mapIcon";
 
-import { FiArrowLeft, FiPlus } from "react-icons/fi";
-import mapMarkerImg from '../images/map-marker.svg'
 import '../styles/pages/create-orphanage.css';
 
-// import Map from "../../components/Map";
-// import happyMapIcon from "../../components/Map/happMapIcon";
-
-const happyMapIcon = L.icon({
-  iconUrl: mapMarkerImg,
-
-  iconSize: [58, 68],
-  iconAnchor: [29, 68],
-  popupAnchor: [0, -60]
-})
-
 export default function OrphanagesMap() {
-  const { goBack } = useHistory();
 
   return (
     <div id="page-create-orphanage">
@@ -33,16 +18,16 @@ export default function OrphanagesMap() {
           <fieldset>
             <legend>Dados</legend>
 
-            <Map 
-              center={[-27.2092052,-49.6401092]}
+            <MapContainer
+              center={[50.9647577, 6.9109848]}
               style={{ width: '100%', height: 280 }}
               zoom={15}
               >
             <TileLayer
               url={`https://api.mapbox.com/styles/v1/mapbox/light-v10/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
             />
-              <Marker interactive={false} icon={happyMapIcon} position={[-27.2092052,-49.6401092]} />
-            </Map>
+              <Marker interactive={false} icon={mapIcon} position={[50.9647577, 6.9109848]} />
+            </MapContainer>
 
             <div className="input-block">
               <label htmlFor="name">Nome</label>
@@ -76,7 +61,7 @@ export default function OrphanagesMap() {
             </div>
 
             <div className="input-block">
-              <label htmlFor="opening_hours">Nome</label>
+              <label htmlFor="opening_hours">Horário de Funcionamento</label>
               <input id="opening_hours" />
             </div>
 
@@ -90,7 +75,7 @@ export default function OrphanagesMap() {
             </div>
           </fieldset>
 
-          <PrimaryButton className="confirm-button" type="submit">Confirmar</PrimaryButton>
+          <button className="confirm-button" type="submit">Confirmar</button>
         </form>
       </main>
     </div>
