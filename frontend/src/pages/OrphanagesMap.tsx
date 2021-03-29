@@ -38,7 +38,7 @@ function OrphanagesMap() {
 
         <Marker 
             icon={mapIcon}
-            position={[-27.2092052,-49.6401092]}
+            position={[50.9647577, 6.9109848]}
         >
         <Popup closeButton={false} minWidth={248} maxWidth={248} className="map-popup">
             Lar das Meninas
